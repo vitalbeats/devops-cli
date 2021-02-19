@@ -13,6 +13,7 @@ def get_secret_value(args):
     for secret_path in args:
         secret = client.get_secret_value(SecretId=secret_path)
         print(secret['SecretString'])
+    return 0
 
 
 def get_secret_as_vars(args):
@@ -26,6 +27,7 @@ def get_secret_as_vars(args):
         secret = client.get_secret_value(SecretId=secret_path)
         [output.append(f"{k}={v}") for k, v in json.loads(secret['SecretString']).items()]
     print(' '.join(output))
+    return 0
 
 
 def get_secret_as_env(args):
@@ -37,3 +39,4 @@ def get_secret_as_env(args):
     for secret_path in args:
         secret = client.get_secret_value(SecretId=secret_path)
         [print(f"export {k}={v}") for k, v in json.loads(secret['SecretString']).items()]
+    return 0
