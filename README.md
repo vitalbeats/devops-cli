@@ -19,9 +19,9 @@ Here are the following commands you can execute with the tool:
 
 
 
-| Module | Command | Arguments | Description |
-|--------|---------|-----------|-------------|
-| `aws` | `get-secret-value` | `<secretId ...>` | Fetches the values of given secret(s), returning them as a JSON object, one per line |
-| `aws` | `get-secret-as-vars` | `<secretId ...>` | Fetches the values of given secret(s), returning them as shell variables. This is useful to prefix a command with. |
-| `aws` | `get-secret-as-env` | `<secretId ...>` | Fetches the values of given secret(s), return them as shell `export` commands, one per line. |
-| `rabbitmq` | `replay` | `[rabbitmqCluster] [graveyardQueue]` | Connects to the specified RabbitMQ cluster, and moves all messages on the specified graveyard queue back onto the exchange it belongs to. This can be used to retry already failed transmission messages for example. |
+| Command | Description |
+|---------|-------------|
+| `aws get-secret-value <secretId ...>` | Fetches the values of given secret(s), returning them as a JSON object, one per line |
+| `aws get-secret-as-vars <secretId ...>` | Fetches the values of given secret(s), returning them as shell variables. This is useful to prefix a command with. |
+| `aws get-secret-as-env <secretId ...>` | Fetches the values of given secret(s), return them as shell `export` commands, one per line. |
+| `rabbitmq replay [rabbitmqCluster] [graveyardQueue]` | Connects to the specified RabbitMQ cluster, and moves all messages on the specified graveyard queue back onto the exchange it belongs to. This can be used to retry already failed transmission messages for example. |
