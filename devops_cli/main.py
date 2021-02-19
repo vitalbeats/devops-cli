@@ -14,6 +14,7 @@ def main():
     try:
         sys.exit(getattr(module, func_name)(sys.argv[3:]))
     except AttributeError as e:
+        eprint(e)
         eprint(f"devops-cli {module_name} has no function named {sys.argv[2]}")
         sys.exit(1)
 
