@@ -35,6 +35,11 @@ export RABBITMQ_DEFAULT_USER=admin
 ```
 
 ### RabbitMQ
+#### purge
+Connects to the specified RabbitMQ cluster, and purges all messages on the specified queue.
+```bash
+$ devops-cli rabbitmq purge scaut-v2-dev/develop/rabbitmq transmissions.parse.graveyard
+```
 #### replay
 Connects to the specified RabbitMQ cluster, and moves all messages on the specified graveyard queue back onto the exchange it belongs to. This can be used to retry already failed transmission messages for example.
 ```bash
