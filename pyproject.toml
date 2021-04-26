@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "devops-cli"
-version = "0.1.0"
+version = "0.2.0"
 description = "A CLI tool that provides useful functions to operate on the Vital Beats cluster."
 authors = ["Stephen Badger <stephen.badger@vitalbeats.com>"]
 license = "GPL-3.0"
