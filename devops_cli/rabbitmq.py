@@ -60,7 +60,7 @@ def purge(args):
 
 def __get_queue_info(args):
     """ Gets info we need to operate a queue """
-    cluster, queue = args
+    cluster, _ = args
     cluster_name, namespace_name, service_name = cluster.split('/')
     secret = boto3.client('secretsmanager').get_secret_value(SecretId=f"{cluster}-password")
     credentials = json.loads(secret['SecretString'])

@@ -34,6 +34,16 @@ export RABBITMQ_DEFAULT_PASS=password
 export RABBITMQ_DEFAULT_USER=admin
 ```
 
+### MinIO
+#### get-transmission
+Connects to the specified MinIO cluster, and download the given transmission + PDF to the current directory.
+```bash
+$ devops-cli minio get-transmission scaut-v2-dev/develop/minio 575f0952-7294-4da6-bf3f-5f9a3279ce29
+```
+```bash
+$ devops-cli minio get-transmission scaut-v2-dev/develop/minio 575f0952-7294-4da6-bf3f-5f9a3279ce29 hl7
+```
+
 ### RabbitMQ
 #### purge
 Connects to the specified RabbitMQ cluster, and purges all messages on the specified queue.
