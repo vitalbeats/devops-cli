@@ -1,5 +1,4 @@
 """ RabbitMQ cluster manipulation functions """
-from os import name
 import boto3
 import json
 import pika
