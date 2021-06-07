@@ -55,3 +55,10 @@ Connects to the specified RabbitMQ cluster, and moves all messages on the specif
 ```bash
 $ devops-cli rabbitmq replay scaut-v2-dev/develop/rabbitmq transmissions.parse.graveyard
 ```
+
+### Clinic
+#### create-clinician
+Creates a new clinician user in the specified clinic, with randomized password.
+```
+$ devops-cli clinic create-clinician scaut-v2-dev/develop username@example.com Firstname_Lastname
+```
