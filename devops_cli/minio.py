@@ -3,6 +3,7 @@ import boto3
 import json
 import minio
 import time
+import os
 from .k8s import k8s_port_forward
 from .utils import eprint
 
@@ -24,7 +25,9 @@ def get_transmission(args):
         eprint(f"transmissions bucket does not exist in {cluster}")
         return 2
     client.fget_object('transmissions', f"{namespace_name}/{id}", f"{id}.{extension}")
-    client.fget_object('transmissions', f"{namespace_name}/{id}.pdf", f"{id}.pdf")
+    __get_file(client, namespace_name, f"{id}.pdf")
+    __get_file(client, namespace_name, f"{id}.json")
+    __get_file(client, namespace_name, f"{id}.pause.pdf")
     return 0
 
 
@@ -36,3 +39,11 @@ def __get_cluster_info(cluster):
     login = {'username': credentials['MINIO_ACCESS_KEY'],
              'password': credentials['MINIO_SECRET_KEY']}
     return cluster_name, namespace_name, service_name, login
+
+
+def __get_file(client, namespace, name):
+    try:
+        client.fget_object('transmissions', f"{namespace}/{name}", f"{name}")
+        print(f"{name} downloaded")
+    except minio.error.S3Error as e:
+        eprint(f"{name} does not exist")
